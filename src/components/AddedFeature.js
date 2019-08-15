@@ -4,15 +4,18 @@ import {removeFeature} from "../actions"
 
 const AddedFeature = props => {
 
-  console.log("REEEEEMOve", props.store)
+  console.log(props.store)
 
+  let price = (ex) =>{
+    props.store.map(item =>{if(item.name===ex){
+      return item.price
+      }})
 
+  }
 
   let Remove = e =>{
     e.preventDefault();
-    console.log("Test",props.feature.name);
-    props.removeFeature( props.store.map(item =>{if(item.name===props.feature)
-      console.log("priccce", item.price)}),props.feature);
+    props.removeFeature( price(props.feature) ,props.feature);
   }
 
   

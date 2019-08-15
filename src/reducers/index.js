@@ -36,10 +36,7 @@ export const reducerFunction = (state=initialState, action)=>{
             additionalPrice: state.additionalPrice - action.payload,
             car:{
               ...state.car,
-              features: [
-                ...state.car.features,
-                state.car.features.remove()
-              ]
+              features: state.car.features.filter(nam => nam !== action.name)
             }
             };
         default:
